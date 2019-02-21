@@ -1,11 +1,13 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DateUtilityService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   totalMonths(startDate: Date, endDate: Date) {
     let months = 0;
@@ -31,7 +33,7 @@ export class DateUtilityService {
   timeWorked(years, months): string {
     const yearsText = this.pluralDateString('year', years);
     const monthsText = this.pluralDateString('month', months);
-    console.log(yearsText, monthsText);
+    // console.log(yearsText, monthsText);
     return `${yearsText}${years && months ? ' ' : ''}${monthsText}`;
   }
 
@@ -45,4 +47,5 @@ export class DateUtilityService {
     }
     return text;
   }
+
 }

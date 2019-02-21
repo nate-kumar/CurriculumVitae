@@ -1,6 +1,7 @@
 export interface IntJob {
+    project: string;
     role: string;
-    company: string;
+    employer: string;
     startDate: Date;
     endDate: Date;
 }

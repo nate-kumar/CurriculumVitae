@@ -1,5 +1,6 @@
-import { DateUtilityService } from './date-utility.service';
-import { JobDataService } from './job-data.service';
+import { HttpClientModule } from '@angular/common/http';
+import { DateUtilityService } from './shared/date-utility.service';
+import { JobDataService } from './experiences/experience-data.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -17,7 +18,8 @@ import { ExperiencesComponent } from './experiences/experiences.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [JobDataService, DateUtilityService],
   bootstrap: [AppComponent]

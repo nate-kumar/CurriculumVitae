@@ -6,7 +6,15 @@ body, html {
     box-sizing: border-box;
 }
 
-ul {
+.icon-captions {
     padding-inline-start: 0px;
     font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    text-justify: inter-character
+}
+
+.bullet-points {
+    padding-inline-start: 0px;
+    font-family: 'Roboto', sans-serif;
+    text-justify: inter-character
 }
