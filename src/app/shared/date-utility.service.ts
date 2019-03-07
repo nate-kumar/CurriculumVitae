@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 @Injectable({
   providedIn: 'root'
@@ -9,18 +8,18 @@ export class DateUtilityService {
 
   constructor(private http: HttpClient) { }
 
-  totalMonths(startDate: Date, endDate: Date) {
+  totalMonths(startDate: Date, endDate: Date): number {
     let months = 0;
     months = (endDate.getFullYear() - startDate.getFullYear()) * 12;
     months += endDate.getMonth() - startDate.getMonth() + 1;
     return months <= 0 ? 0 : months;
   }
 
-  monthsWorked(totalMonths) {
+  monthsWorked(totalMonths: number): number {
     return totalMonths % 12;
   }
 
-  yearsWorked(totalMonths) {
+  yearsWorked(totalMonths: number): number {
     return Math.floor(totalMonths / 12);
   }
 

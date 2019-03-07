@@ -26,29 +26,29 @@ export class ExperiencesComponent implements OnInit {
   constructor(private jobDataService: JobDataService,
               private dateUtilityService: DateUtilityService) {
 
-    this.experiences = this.jobDataService.experienceItems;
-    this.jobDataService.getRoles().subscribe((res) => this.test = res);
+
   }
 
   ngOnInit() {
-    this.experiences
-      .then((res, rej) => res
-        .map((item) => console.log(item.role)
-        )
-      );
-    /*
-    this.uniqueRoles = this.uniqueValues(this.experiences, 'role');
-    this.uniqueRolesArr = Array.from(this.uniqueRoles);
+    this.jobDataService.getExperiences().subscribe((res) => {
+      this.experiences = res;
 
-    this.experiencesByRole = this.splitExperiencesByRole(this.experiences, this.uniqueRoles);
+      this.uniqueRoles = this.uniqueValues(this.experiences, 'role');
+      this.uniqueRolesArr = Array.from(this.uniqueRoles);
 
-    this.experiencesByRole.forEach((el) => {
-      this.timeWorkedStrByRole
-        .push(this.timeWorkedString(el[0].startDate, el[0].endDate));
+      this.experiencesByRole = this.splitExperiencesByRole(this.experiences, this.uniqueRoles);
+
+      this.experiencesByRole.forEach((el) => {
+        const startDate = new Date(el[0].startDate);
+        const endDate = new Date(el[0].endDate);
+        this.timeWorkedStrByRole
+          .push(this.timeWorkedString(startDate, endDate));
+      });
+
     });
 
-    console.log(this.experiencesByRole[0][0].startDate);
-    */
+
+
   }
 
   uniqueValues(array, prop) {
@@ -68,14 +68,12 @@ export class ExperiencesComponent implements OnInit {
 
       experiences.forEach((exp) => {
         if (exp.role === role) {
-          // console.log(exp.role);
           tempArray.push(exp);
         }
       });
 
       masterArray.push(tempArray);
     });
-    // console.log(masterArray);
     return masterArray;
   }
 
@@ -90,18 +88,19 @@ export class ExperiencesComponent implements OnInit {
   // replace "role" with "job" (e.g. Systems Eng @ JLR), and use "role" and "position" interchangeably
 
 
-  timeWorkedString(startDate, endDate) {
+  timeWorkedString(startDate: Date, endDate: Date) {
+
     const months = this.dateUtilityService
       .monthsWorked(
         this.dateUtilityService.totalMonths(startDate, endDate)
       );
+
     const years = this.dateUtilityService
       .yearsWorked(
         this.dateUtilityService.totalMonths(startDate, endDate)
       );
-    const timeWorkedStr = this.dateUtilityService.timeWorked(years, months);
 
-    console.log(timeWorkedStr);
+    const timeWorkedStr = this.dateUtilityService.timeWorked(years, months);
     return timeWorkedStr;
   }
 

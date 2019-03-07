@@ -63,11 +63,8 @@ export class JobDataService {
   //   },
   // ];
 
-  experienceItems;
-
   constructor(private http: HttpClient) {
-    this.experienceItems = this.getExperiences();
-    console.log(this.experienceItems);
+
   }
 
   getUniqueRoles() {
@@ -79,18 +76,18 @@ export class JobDataService {
       // .subscribe((body) => body);
   }
 
-  async getExperiences() {
-    if (typeof this.experienceItems === 'undefined') {
-        // save result
-        this.experienceItems = await this.http.get('http://localhost:3000/experiences')
-        .toPromise()
-        .then(res => res as IntExperience); // Do you own cast here
+  getExperiences() {
+    // if (typeof this.experienceItems === 'undefined') {
+    //     // save result
+    //     this.experienceItems = await this.http.get('http://localhost:3000/experiences')
+    //     .toPromise()
+    //     .then(res => res as IntExperience); // Do you own cast here
 
-    }
-    console.log(this.experienceItems);
-    return this.experienceItems;
+    // }
+    // console.log(this.experienceItems);
+    // return this.experienceItems;
 
-    // return this.http.get('http://localhost:3000/experiences');
+    return this.http.get<IntExperience[]>('http://localhost:3000/experiences');
   }
 
   getUniqueEmployers() {

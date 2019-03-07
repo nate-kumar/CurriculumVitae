@@ -9,12 +9,15 @@ import { IntExperience } from '../int-experience';
 export class ExperienceItemComponent implements OnInit {
 
   @Input() experience: IntExperience;
+  title: string;
   description: string;
+
 
   constructor() {
   }
 
   ngOnInit() {
+    this.title = this.experience.experienceTitle;
     this.description = this.experience.experienceDescription;
   }
 
