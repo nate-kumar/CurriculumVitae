@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "npm run mongo-bat && ng serve",
+    "start": "concurrently \"ng serve\" \"nodemon server/server.js\"",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
     "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
     "core-js": "^2.5.4",
     "express": "^4.16.4",
     "mongodb": "^3.1.13",
