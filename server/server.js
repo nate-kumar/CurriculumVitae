@@ -80,7 +80,7 @@ app.get('/experiences', (req, res) => {
     })
 })
 
-const port = 3010;
+const port = 3000;
 app.listen(port, () => {
     console.log(`Started on port ${port}`)
 })

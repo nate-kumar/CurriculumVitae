@@ -2,59 +2,43 @@
     --page-margin: 40px;
 }
 
-#window {
-    display: flex;
-    height: auto;
-    min-height: 100vh;
-    overflow: auto;
-    justify-content: center;
-    align-items: center;
-    background-color: #269;
-    padding: 50px;
+#wrapper {
+    display: grid;
+    grid-template-columns: 3fr 7fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "landing-page landing-page"
+    "about-me about-me"
+    "main main"
+    "social social";
 }
 
-#page-border {
-    display: flex;
-    height: auto;
-    width: 80%;
-    background: linear-gradient(#286FE6, #6195ED);
-    justify-content: center;
-    align-items: center;
-    padding: 8px;
-}
-
-@media screen and (min-width: 1000px) {
-    #page {
-        display: grid;
-        grid-template-columns: 3fr 7fr;
-        grid-template-rows: auto;
-        grid-template-areas: 
-        "photo title"
-        "aside main";
-        grid-column-gap: var(--page-margin);
-        grid-row-gap: 20px;
-    }
-}
-
-#page {
+#header {
+    grid-area: header;
     width: 100%;
-    height: 100%;
-    padding: var(--page-margin);
-    background: white;
-    font-family: 'Raleway', sans-serif;  
+    position: fixed;
+    z-index: 10;
+}
+
+#landing-page {
+    grid-area: landing-page;
+    // width: 100%;
+    height: calc(100vh - 54px);
+    min-height: 800px;
+    padding-top: 54px;
 }
 
 
-#photo {
-    grid-area: photo;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+#about-me {
+    grid-area: about-me;
 }
 
-.photo-clip {
-    clip-path: circle(125px at 125px 125px);
-}
+
+
+
+// .photo-clip {
+//     clip-path: circle(125px at 125px 125px);
+// }
 
 #title-container {
     grid-area: title;
@@ -64,34 +48,29 @@
     align-self: center;
     align-content: space-around;
     flex-direction: column;
+    background: red;
 }
 
-#title {
-    font-size: 56px;
-    margin-block-start: 0px;
-    margin-block-end: 0px;
-}
 
-#subtitle {
-    font-size: 24px;
-    margin-block-start: 0px;
-    margin-block-end: 0px;
-}
+
 
 #main-container {
     grid-area: main;
     display: inline-block;
 }
 
-#aside-container {
-    grid-area: aside;
-    display: inline-block;
-}
+// #aside-container {
+//     grid-area: aside;
+//     display: inline-block;
+//     padding: var(--page-margin);
+//     background: pink;
+// }
 
-#contact, #skills, #social {
+#contact, #social, #tech-skills {
     display: grid;
     grid-template-columns: 50px auto;
     grid-row-gap: 0px;
+    border: 1px solid black;
 }
 
 ul {

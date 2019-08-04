@@ -2,8 +2,6 @@ import { IntExperience } from './int-experience';
 import { DateUtilityService } from './../shared/date-utility.service';
 import { Component, OnInit } from '@angular/core';
 import { JobDataService } from './experience-data.service';
-import { IntJob } from './../shared/int-job';
-import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 @Component({
   selector: 'app-experiences',
