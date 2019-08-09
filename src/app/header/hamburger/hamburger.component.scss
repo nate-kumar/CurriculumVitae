@@ -23,6 +23,9 @@
     .hamburger.is-active .hamburger-inner::before,
     .hamburger.is-active .hamburger-inner::after {
       background-color: #ffffff; }
+    .hamburger:focus {
+      outline: none;
+    }
   
   .hamburger-box {
     width: 40px;
