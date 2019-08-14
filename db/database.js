@@ -1,10 +1,13 @@
 const {MongoClient} = require('mongodb');
 const connectionString = 'mongodb://localhost:27017'
 
-const experiences = require('../db/experiences');
+// const experiences = require('../db/experiences');
 
+// Sychronous file read as JSON is small. If large, use Async method fs.readFile.
+const fs = require('fs');
+const experiences = JSON.parse(fs.readFileSync('../CurriculumVitae/db/experiences.json', 'utf8'));
 
-MongoClient.connect(connectionString, (err, client) => {
+MongoClient.connect(connectionString, { useNewUrlParser: true }, (err, client) => {
     if (err) {
         return console.log('Unable to connect to MongoDB server')
     }
