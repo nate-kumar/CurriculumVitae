@@ -3,6 +3,8 @@ import { DateUtilityService } from './../shared/date-utility.service';
 import { Component, OnInit } from '@angular/core';
 import { JobDataService } from './experience-data.service';
 import { IntJob } from '../shared/int-job';
+import { Observable, merge } from 'rxjs';
+import { mergeMap, concat, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-experiences',
@@ -16,7 +18,7 @@ export class ExperiencesComponent implements OnInit {
   uniqueRolesArr;
   experiencesByRole: IntExperience[];
   timeWorkedStrByRole: string[] = [];
-  jobs;
+  jobs: IntJob[];
 
   test: object = {_id: '', role: ''};
 
@@ -28,7 +30,15 @@ export class ExperiencesComponent implements OnInit {
 
   ngOnInit() {
 
-    this.jobDataService.getExperiences().subscribe((res) => {
+    const jobs$ = this.jobDataService.getJobs();
+
+    jobs$.subscribe((res) => {
+      this.jobs = res;
+    });
+
+    const experiences$ = this.jobDataService.getExperiences();
+
+    experiences$.subscribe((res) => {
 
       // Initialise array of experiences
       this.experiences = res;
@@ -41,19 +51,23 @@ export class ExperiencesComponent implements OnInit {
       this.experiencesByRole = this.splitExperiencesByRole(this.experiences, this.uniqueRoles);
 
       // Calculate timeworked for each role
-      this.experiencesByRole.forEach((el) => {
-        const startDate = new Date(el[0].startDate);
-        const endDate = new Date(el[0].endDate);
+      this.jobs.forEach((job) => {
+        const startDate = new Date(job.startDate);
+        const endDate = new Date(job.endDate);
         this.timeWorkedStrByRole
           .push(this.timeWorkedString(startDate, endDate));
       });
 
-
     });
 
-
+    // const jobsExperiences$ = merge(
+    //   experiences$,
+    //   jobs$
+    // ).subscribe((res) => console.log(res));
 
   }
+
+
 
   uniqueValues(array, prop) {
     const arrayValues = [];

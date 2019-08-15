@@ -2,7 +2,7 @@
   <app-block-heading titleName="Experience"></app-block-heading>
   <div *ngFor="let role of uniqueRolesArr; let i = index">
     <h4>{{ role }}</h4>
-    <h5>{{ experiencesByRole[i][0].startDate | date: 'MMM yy' }} - {{ experiencesByRole[i][0].endDate | date: 'MMM yy' }}  ({{ timeWorkedStrByRole[i] }})</h5>
+    <h5>{{ jobs[i].startDate | date: 'MMM yy' }} - {{ jobs[i].endDate | date: 'MMM yy' }}  ({{ timeWorkedStrByRole[i] }})</h5>
     <app-experience-item *ngFor="let exp of experiencesByRole[i]" [experience]="exp"></app-experience-item>
   </div>
 </section>
