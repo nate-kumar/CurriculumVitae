@@ -15,13 +15,13 @@ import { mergeMap, concat, map } from 'rxjs/operators';
 export class ExperiencesComponent implements OnInit {
 
   experiences: IntExperience[] = [];
-  uniqueRoles: Set<any>;
-  uniqueRolesArr;
-  experiencesByRole: IntExperience[];
+  uniqueJobs: Set<string>;
+  uniqueJobsArr: string[];
+  experiencesByRole: Array<IntExperience[]>;
+  experiencesByRoleByRank: Array<IntExperience[]>;
   timeWorkedStrByRole: string[] = [];
   jobs: IntJob[];
-
-  test: object = {_id: '', role: ''};
+  jobsByDate: IntJob[];
 
   frontEnd = true;
 
@@ -31,26 +31,26 @@ export class ExperiencesComponent implements OnInit {
   }
 
   ngOnInit() {
-
     const jobs$ = this.jobDataService.getJobs();
+    const experiences$ = this.jobDataService.getExperiences();
 
     jobs$.subscribe((res) => {
       this.jobs = res;
     });
 
-    const experiences$ = this.jobDataService.getExperiences();
-
     experiences$.subscribe((res) => {
-
       // Initialise array of experiences
       this.experiences = res;
+      console.log(this.experiences);
 
-      // Get all roles against each experience and return unique array of roles
-      this.uniqueRoles = this.arrayUtilityService.uniqueValuesFromArray(this.experiences, 'role');
-      this.uniqueRolesArr = Array.from(this.uniqueRoles);
+      // Split experiences array into n subarrays of experiences grouped by role and sorted by
+      // job date
+      this.jobsByDate = this.sortJobsByDate(this.jobs);
+      this.experiencesByRole = this.splitExperiencesByJob(this.experiences, this.jobsByDate);
+      this.experiencesByRoleByRank = this.sortArrayExperiencesByRank(
+        this.experiencesByRole, 'rankProjManagement');
 
-      // Split experiences array into n subarrays of experiences grouped by role
-      this.experiencesByRole = this.splitExperiencesByRole(this.experiences, this.uniqueRoles);
+      console.log(this.experiencesByRoleByRank);
 
       // Calculate timeworked for each role
       this.jobs.forEach((job) => {
@@ -70,14 +70,14 @@ export class ExperiencesComponent implements OnInit {
 
   }
 
-  splitExperiencesByRole(experiences: IntExperience[], roles): IntExperience[] {
+  splitExperiencesByJob(experiences: IntExperience[], jobs: IntJob[]): Array<IntExperience[]> {
     const masterArray = [];
 
-    roles.forEach((role) => {
+    jobs.forEach((job) => {
       const tempArray = [];
 
       experiences.forEach((exp) => {
-        if (exp.role === role) {
+        if (exp.role === job.role) {
           tempArray.push(exp);
         }
       });
@@ -87,11 +87,57 @@ export class ExperiencesComponent implements OnInit {
     return masterArray;
   }
 
-  sortByRank(experiences: IntExperience[], position) {
-    // experiences.sort by position (e.g. rankFrontEnd)
+
+  sortJobsByDate(jobs: IntJob[]): IntJob[] {
+
+    const jobsSorted = jobs.slice().sort((a, b) => {
+      if (a.startDate > b.startDate) {
+        return -1;
+      }
+      if (a.startDate < b.startDate) {
+        return 1;
+      }
+      return 0;
+    });
+
+    return jobsSorted;
   }
 
-  sortByRole(experiences: IntExperience[], position) {
+
+  sortExperiencesByRank(experiences: IntExperience[], position): IntExperience[] {
+    // experiences.sort by position (e.g. rankFrontEnd)
+
+    const experiencesSorted = experiences.slice().sort((a, b) => {
+      if (a[position] > b[position]) {
+        return -1;
+      }
+      if (a[position] < b[position]) {
+        return 1;
+      }
+      return 0;
+    });
+
+    return experiencesSorted;
+  }
+
+  sortArrayExperiencesByRank(arrayExperiences: Array<IntExperience[]>, position) {
+
+    const arrayExperiencesSorted = [];
+
+    arrayExperiences.slice().forEach((experiences) => {
+      console.table(experiences);
+      const experiencesByRank = this.sortExperiencesByRank(experiences, position);
+      console.table(experiencesByRank);
+      arrayExperiencesSorted.push(experiencesByRank);
+    });
+
+    console.table(arrayExperiencesSorted);
+
+    return arrayExperiencesSorted;
+
+  }
+
+  sortExperiencesByRole(experiences: IntExperience[], position) {
     // experiences.sort by job (e.g. Systems Eng @ JLR)
   }
 
