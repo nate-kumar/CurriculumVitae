@@ -53,7 +53,7 @@
     {
       "experienceTitle": "Drive Mode Discovery Manager",
       "experienceDescription": "Architected a scalable, configurable library responsible for graphically displaying terrain mode \nicons as a function of the HMI hardware on a given vehicle reducing calibration variants from 5 \nto 1.",
-      "project": "4x4 Information & All Surface Information",
+      "project": "All Terrain Info Centre & All Surface Information",
       "role": "System Owner",
       "rankFrontEnd": 6,
       "rankBackEnd": 5,
@@ -73,7 +73,7 @@
     {
       "experienceTitle": "4x4i Self-deploy on Stall",
       "experienceDescription": "Resolved an issue causing the feature to self-deploy on customer vehicles. Root caused via \ndetailled analysis of multiple system specifications, highlighting a cross-system design \ndeficiency occurring specifically as a result of the vehicle stalling.",
-      "project": "4x4 Information & All Surface Information",
+      "project": "All Terrain Info Centre & All Surface Information",
       "role": "System Owner",
       "rankFrontEnd": 4,
       "rankBackEnd": 4,
@@ -103,7 +103,7 @@
     {
       "experienceTitle": "4x4i I-Pace Late Changes",
       "experienceDescription": "Delivered multiple customer-facing visual changes months before the release date of JLR's \nfirst-to-market BEV the I-Pace. Successfully elicited content, wrote and cascaded requirements, \nvehicle tested and calibrated the product enabling the vehicle to be sold on time.",
-      "project": "4x4 Information & All Surface Information",
+      "project": "All Terrain Info Centre & All Surface Information",
       "role": "System Owner",
       "rankFrontEnd": 3,
       "rankBackEnd": 3,

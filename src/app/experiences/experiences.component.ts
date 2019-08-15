@@ -2,6 +2,7 @@ import { IntExperience } from './int-experience';
 import { DateUtilityService } from './../shared/date-utility.service';
 import { Component, OnInit } from '@angular/core';
 import { JobDataService } from './experience-data.service';
+import { IntJob } from '../shared/int-job';
 
 @Component({
   selector: 'app-experiences',
@@ -15,7 +16,7 @@ export class ExperiencesComponent implements OnInit {
   uniqueRolesArr;
   experiencesByRole: IntExperience[];
   timeWorkedStrByRole: string[] = [];
-
+  jobs;
 
   test: object = {_id: '', role: ''};
 
@@ -23,25 +24,30 @@ export class ExperiencesComponent implements OnInit {
 
   constructor(private jobDataService: JobDataService,
               private dateUtilityService: DateUtilityService) {
-
-
   }
 
   ngOnInit() {
+
     this.jobDataService.getExperiences().subscribe((res) => {
+
+      // Initialise array of experiences
       this.experiences = res;
 
+      // Get all roles against each experience and return unique array of roles
       this.uniqueRoles = this.uniqueValues(this.experiences, 'role');
       this.uniqueRolesArr = Array.from(this.uniqueRoles);
 
+      // Split experiences array into n subarrays of experiences grouped by role
       this.experiencesByRole = this.splitExperiencesByRole(this.experiences, this.uniqueRoles);
 
+      // Calculate timeworked for each role
       this.experiencesByRole.forEach((el) => {
         const startDate = new Date(el[0].startDate);
         const endDate = new Date(el[0].endDate);
         this.timeWorkedStrByRole
           .push(this.timeWorkedString(startDate, endDate));
       });
+
 
     });
 

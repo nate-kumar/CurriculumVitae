@@ -39,6 +39,14 @@ const Experiences = mongoose.model('experiences', {
     rankSystemsEng:Number,
 });
 
+const Jobs = mongoose.model('jobs', {
+    project:String,
+    role:String,
+    employer:String,
+    startDate:Date,
+    endDate:Date
+})
+
 
 // app.post('/todos', (req, res) => {
 //     // console.log(req.body);
@@ -77,6 +85,15 @@ app.get('/experiences', (req, res) => {
             res.send('experiences not found');
         }
         res.json(experiences);
+    })
+})
+
+app.get('/jobs', (req, res) => {
+    Jobs.find((err, jobs) => {
+        if(err) {
+            res.send('jobs not found')
+        }
+        res.json(jobs)
     })
 })
 

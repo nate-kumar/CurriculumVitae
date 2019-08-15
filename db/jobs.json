@@ -1,0 +1,32 @@
+{ "jobs": 
+    [
+        {
+        "project": "Terrain Response & Auto Terrain Response",
+        "role": "Lead System Architect",
+        "employer": "Jaguar Land Rover",
+        "startDate": "2018-09-01T07:00:00+0000",
+        "endDate": "2019-08-31T07:00:00+0000"
+        },
+        {
+        "project": "All Terrain Info Centre & All Surface Information",
+        "role": "Software Systems Engineer",
+        "employer": "Jaguar Land Rover",
+        "startDate": "2017-03-01T07:00:00+0000",
+        "endDate": "2018-08-31T07:00:00+0000"
+        },
+        {
+        "project": "Terrain Response & Auto Terrain Response",
+        "role": "Software Systems Engineer",
+        "employer": "Jaguar Land Rover",
+        "startDate": "2015-09-01T07:00:00+0000",
+        "endDate": "2018-08-31T07:00:00+0000"
+        },
+        {
+        "project": "Product Development Graduate Scheme",
+        "role": "Graduate Engineer",
+        "employer": "Jaguar Land Rover",
+        "startDate": "2013-09-01T07:00:00+0000",
+        "endDate": "2015-08-31T07:00:00+0000"
+        }
+    ]
+}
