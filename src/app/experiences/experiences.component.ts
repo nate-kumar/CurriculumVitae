@@ -1,3 +1,4 @@
+import { ArrayUtilityService } from './../shared/array-utility.service';
 import { IntExperience } from './int-experience';
 import { DateUtilityService } from './../shared/date-utility.service';
 import { Component, OnInit } from '@angular/core';
@@ -25,7 +26,8 @@ export class ExperiencesComponent implements OnInit {
   frontEnd = true;
 
   constructor(private jobDataService: JobDataService,
-              private dateUtilityService: DateUtilityService) {
+              private dateUtilityService: DateUtilityService,
+              private arrayUtilityService: ArrayUtilityService) {
   }
 
   ngOnInit() {
@@ -44,7 +46,7 @@ export class ExperiencesComponent implements OnInit {
       this.experiences = res;
 
       // Get all roles against each experience and return unique array of roles
-      this.uniqueRoles = this.uniqueValues(this.experiences, 'role');
+      this.uniqueRoles = this.arrayUtilityService.uniqueValuesFromArray(this.experiences, 'role');
       this.uniqueRolesArr = Array.from(this.uniqueRoles);
 
       // Split experiences array into n subarrays of experiences grouped by role
@@ -54,8 +56,9 @@ export class ExperiencesComponent implements OnInit {
       this.jobs.forEach((job) => {
         const startDate = new Date(job.startDate);
         const endDate = new Date(job.endDate);
+        const timeWorkedStr = this.dateUtilityService.timeWorkedString(startDate, endDate);
         this.timeWorkedStrByRole
-          .push(this.timeWorkedString(startDate, endDate));
+          .push(timeWorkedStr);
       });
 
     });
@@ -65,17 +68,6 @@ export class ExperiencesComponent implements OnInit {
     //   jobs$
     // ).subscribe((res) => console.log(res));
 
-  }
-
-
-
-  uniqueValues(array, prop) {
-    const arrayValues = [];
-
-    array.forEach((el) => {
-      arrayValues.push(el[prop]);
-    });
-    return new Set(arrayValues);
   }
 
   splitExperiencesByRole(experiences: IntExperience[], roles): IntExperience[] {
@@ -104,23 +96,5 @@ export class ExperiencesComponent implements OnInit {
   }
 
   // replace "role" with "job" (e.g. Systems Eng @ JLR), and use "role" and "position" interchangeably
-
-
-  timeWorkedString(startDate: Date, endDate: Date) {
-
-    const months = this.dateUtilityService
-      .monthsWorked(
-        this.dateUtilityService.totalMonths(startDate, endDate)
-      );
-
-    const years = this.dateUtilityService
-      .yearsWorked(
-        this.dateUtilityService.totalMonths(startDate, endDate)
-      );
-
-    const timeWorkedStr = this.dateUtilityService.timeWorked(years, months);
-    return timeWorkedStr;
-  }
-
 
 }

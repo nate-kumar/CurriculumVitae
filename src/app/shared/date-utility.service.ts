@@ -23,16 +23,9 @@ export class DateUtilityService {
     return Math.floor(totalMonths / 12);
   }
 
-  // yearsWorked(startDate: Date, endDate: Date) {
-  //   const yearsWorked: number = Math.floor((endDate.valueOf() - startDate.valueOf()) / (1000 * 60 * 60 * 24 * 365)) || 0;
-  //   console.log(yearsWorked);
-  //   return yearsWorked;
-  // }
-
   timeWorked(years, months): string {
     const yearsText = this.pluralDateString('year', years);
     const monthsText = this.pluralDateString('month', months);
-    // console.log(yearsText, monthsText);
     return `${yearsText}${years && months ? ' ' : ''}${monthsText}`;
   }
 
@@ -45,6 +38,20 @@ export class DateUtilityService {
       text += 's';
     }
     return text;
+  }
+
+  timeWorkedString(startDate: Date, endDate: Date) {
+
+    const months = this.monthsWorked(
+        this.totalMonths(startDate, endDate)
+      );
+
+    const years = this.yearsWorked(
+        this.totalMonths(startDate, endDate)
+      );
+
+    const timeWorkedStr = this.timeWorked(years, months);
+    return timeWorkedStr;
   }
 
 }
