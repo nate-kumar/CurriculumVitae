@@ -1,0 +1,374 @@
+{ "experiences": 
+  [
+    {
+      "experienceTitle": "Car Configuration Tool",
+      "experienceDescription": "Built a laptop-based car configuration analysis tool, allowing users to verify the content of car \nconfiguration files before downloading them to a vehicle, providing feedback upto 100 times \nquicker than existing methods.",
+      "project": "Terrain Response & Configurable Terrain Response",
+      "role": "Lead System Architect",
+      "rankFrontEnd": 6,
+      "rankBackEnd": 8,
+      "rankProjManagement": 4,
+      "rankSystemsEng": 6
+    },
+    {
+      "experienceTitle": "GWM software configurations from 20 to 1",
+      "experienceDescription": "Reduced number of unique software configurations from approximately 20 to 1, significantly \nreducing supplier costs, validation effort and software availability lead time.",
+      "project": "Terrain Response & Configurable Terrain Response",
+      "role": "Lead System Architect",
+      "rankFrontEnd": 4,
+      "rankBackEnd": 6,
+      "rankProjManagement": 6,
+      "rankSystemsEng": 8
+    },
+    {
+      "experienceTitle": "Revamped software delivery process",
+      "experienceDescription": "Spearheaded a tailored software delivery process for a team of 15 members. Defined key roles, \nflow and format of information and conducted local training on how to implement this within \nthe company�s existing toolchain.",
+      "project": "Terrain Response & Configurable Terrain Response",
+      "role": "Lead System Architect",
+      "rankFrontEnd": 3,
+      "rankBackEnd": 3,
+      "rankProjManagement": 8,
+      "rankSystemsEng": 7
+    },
+    {
+      "experienceTitle": "Software engineer management",
+      "experienceDescription": "Led a team of 3 software engineers to deliver a single software stream capable of supporting \n13 unique vehicle programmes. Managed sprint timing, workload prioritisation, requirements \ncascade and progress tracking, repeatedly delivering to time and budget commitments.",
+      "project": "Terrain Response & Configurable Terrain Response",
+      "role": "Lead System Architect",
+      "rankFrontEnd": 3,
+      "rankBackEnd": 3,
+      "rankProjManagement": 9,
+      "rankSystemsEng": 6
+    },
+    {
+      "experienceTitle": "Interactive mindmap",
+      "experienceDescription": "Developed a Javascript- and PHP-driven prototype for a tags-based, interactive mind-map \nsystem allowing users to explore the relationships between submitted ideas and identify gaps \nand opportunities.",
+      "project": "Product Development Graduate Scheme",
+      "role": "Graduate Engineer",
+      "rankFrontEnd": 8,
+      "rankBackEnd": 8,
+      "rankProjManagement": 5,
+      "rankSystemsEng": 3
+    },
+    {
+      "experienceTitle": "Drive Mode Discovery Manager",
+      "experienceDescription": "Architected a scalable, configurable library responsible for graphically displaying terrain mode \nicons as a function of the HMI hardware on a given vehicle reducing calibration variants from 5 \nto 1.",
+      "project": "All Terrain Info Centre & All Surface Information",
+      "role": "System Owner",
+      "rankFrontEnd": 6,
+      "rankBackEnd": 5,
+      "rankProjManagement": 2,
+      "rankSystemsEng": 7
+    },
+    {
+      "experienceTitle": "Keyword-based Requirements Capture Spreadsheet",
+      "experienceDescription": "Developed a high-level requirements capture tool allowing teams to communicate bundles of \nrequirements with keywords for projects with minimal/no change.",
+      "project": "Terrain Response & Auto Terrain Response",
+      "role": "Software Systems Engineer",
+      "rankFrontEnd": 5,
+      "rankBackEnd": 6,
+      "rankProjManagement": 3,
+      "rankSystemsEng": 7
+    },
+    {
+      "experienceTitle": "4x4i Self-deploy on Stall",
+      "experienceDescription": "Resolved an issue causing the feature to self-deploy on customer vehicles. Root caused via \ndetailled analysis of multiple system specifications, highlighting a cross-system design \ndeficiency occurring specifically as a result of the vehicle stalling.",
+      "project": "All Terrain Info Centre & All Surface Information",
+      "role": "System Owner",
+      "rankFrontEnd": 4,
+      "rankBackEnd": 4,
+      "rankProjManagement": 2,
+      "rankSystemsEng": 6
+    },
+    {
+      "experienceTitle": "Automated issues tracker script",
+      "experienceDescription": "Chaired a multi-team issues meeting whereby delta minutes/actions were published to stakeholders via an automated script saving approximately 1 man-hour per week for 2 years",
+      "project": "Terrain Response & Auto Terrain Response",
+      "role": "Software Systems Engineer",
+      "rankFrontEnd": 4,
+      "rankBackEnd": 7,
+      "rankProjManagement": 6,
+      "rankSystemsEng": 6
+    },
+    {
+      "experienceTitle": "FAP Graduate Forum",
+      "experienceDescription": "Launched and ran a weekly graduate forum, mobilising group projects requiring additional resource. Deployed a team website, delivered an innovation workshop and implemented a PHEV Ride and Drive event.",
+      "project": "Product Development Graduate Scheme",
+      "role": "Graduate Engineer",
+      "rankFrontEnd": 4,
+      "rankBackEnd": 4,
+      "rankProjManagement": 6,
+      "rankSystemsEng": 3
+    },
+    {
+      "experienceTitle": "4x4i I-Pace Late Changes",
+      "experienceDescription": "Delivered multiple customer-facing visual changes months before the release date of JLR's \nfirst-to-market BEV the I-Pace. Successfully elicited content, wrote and cascaded requirements, \nvehicle tested and calibrated the product enabling the vehicle to be sold on time.",
+      "project": "All Terrain Info Centre & All Surface Information",
+      "role": "System Owner",
+      "rankFrontEnd": 3,
+      "rankBackEnd": 3,
+      "rankProjManagement": 5,
+      "rankSystemsEng": 6
+    },
+    {
+      "experienceTitle": "Code Comparison Tool",
+      "experienceDescription": "Implemented a spreadsheet-based code comparison tool to assess bundles of interfacing C\ncode files eliminating 100% of the human error associated with manually transcribing\nrequirements into code",
+      "project": "Terrain Response & Auto Terrain Response",
+      "role": "Software Systems Engineer",
+      "rankFrontEnd": 3,
+      "rankBackEnd": 5,
+      "rankProjManagement": 3,
+      "rankSystemsEng": 6
+    },
+    {
+      "experienceTitle": "Automated Meeting Minutes",
+      "experienceDescription": "Developed supporting issues tracker spreadsheet and automated calendar generation script, pushing actions to calendar regularly",
+      "project": "Terrain Response & Auto Terrain Response",
+      "role": "Software Systems Engineer",
+      "rankFrontEnd": 3,
+      "rankBackEnd": 7,
+      "rankProjManagement": 7,
+      "rankSystemsEng": 3
+    },
+    {
+      "experienceTitle": "Auto Terrain Response Rehosting",
+      "experienceDescription": "Led the rehosting of Auto Terrain Response from an in-house ECU to a brand new \nsupplier-based ECU. Handled system design decisions, requirements cascade, software \nvalidation, issue resolution and supplier management.",
+      "project": "Terrain Response & Auto Terrain Response",
+      "role": "Software Systems Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 4,
+      "rankProjManagement": 8,
+      "rankSystemsEng": 8
+    },
+    {
+      "experienceTitle": "Modular Overhead Console",
+      "experienceDescription": "Co-designed a modular overhead console capable of replacing 24 unique hardware variants \nand saving an estimated �15-25 per car across the entire JLR fleet of 400,000+ vehicles",
+      "project": "Product Development Graduate Scheme",
+      "role": "Graduate Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 2,
+      "rankProjManagement": 3,
+      "rankSystemsEng": 8
+    },
+    {
+      "experienceTitle": "HMI Input/Display Functional Specifications",
+      "experienceDescription": "Authored a range of subsystem specifications for input switches and instrument panel cluster \ndisplays. Required the development of bespoke pseudocode syntax to clearly communicate \niterative/conditional requirements in a standardised way.",
+      "project": "Terrain Response & Auto Terrain Response",
+      "role": "Software Systems Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 3,
+      "rankProjManagement": 3,
+      "rankSystemsEng": 7
+    },
+    {
+      "experienceTitle": "Urgent Vehicle Build Support",
+      "experienceDescription": "Support at Oxford road in order to identify issues with Lo-line switches coming out of build. CANalyzer config + guide developed in order to enable TR selection on Lo-line vehicles, saving a 4-month wait til updated software was to be provided.",
+      "project": "Terrain Response & Auto Terrain Response",
+      "role": "Software Systems Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 2,
+      "rankProjManagement": 2,
+      "rankSystemsEng": 7
+    },
+    {
+      "experienceTitle": "8D Workshop",
+      "experienceDescription": "Supported 8D workshop, identified gaps and corresponding containment/prevent recurrence actions",
+      "project": "Terrain Response & Auto Terrain Response",
+      "role": "Software Systems Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 2,
+      "rankProjManagement": 4,
+      "rankSystemsEng": 7
+    },
+    {
+      "experienceTitle": "Project Manager between JLR and Multiple Global Suppliers",
+      "experienceDescription": "Key informed stakeholder and central coordinator between JLR CE, JLR CH, Continental Hungary and KPIT India",
+      "project": "Terrain Response & Auto Terrain Response",
+      "role": "Software Systems Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 2,
+      "rankProjManagement": 8,
+      "rankSystemsEng": 6
+    },
+    {
+      "experienceTitle": "Signal Architecture Diagrams",
+      "experienceDescription": "Created signal diagrams reflecting the current state of the networks for relevant D7e and D8 programmes on a gateway by gateway basis",
+      "project": "Terrain Response & Auto Terrain Response",
+      "role": "Software Systems Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 2,
+      "rankProjManagement": 5,
+      "rankSystemsEng": 6
+    },
+    {
+      "experienceTitle": "System Abstract Diagrams",
+      "experienceDescription": "Requirement development and cascade to support the introduction of TR pop-up in light of new HVAC switch strategy / PIVI infotainment strategy\nSAD developed to support Nick Veale architecture review of feature",
+      "project": "Terrain Response & Auto Terrain Response",
+      "role": "Software Systems Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 2,
+      "rankProjManagement": 5,
+      "rankSystemsEng": 6
+    },
+    {
+      "experienceTitle": "Workload Impact Evaluation Framework",
+      "experienceDescription": "Revolutionised the teams workload prioritisation model with a custom quantitative framework able to determine the relative value of fixing current issues vs implementing new requirements.",
+      "project": "Terrain Response & Auto Terrain Response",
+      "role": "Software Systems Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 2,
+      "rankProjManagement": 8,
+      "rankSystemsEng": 6
+    },
+    {
+      "experienceTitle": "Fit For Fun Sports Day",
+      "experienceDescription": "Managed a team of 7 to deliver a sports day event for children from local schools. Coordinated the design, manufacture, deployment and logistics of the original sports day event concept against timing and budget constraints.",
+      "project": "Product Development Graduate Scheme",
+      "role": "Graduate Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 2,
+      "rankProjManagement": 8,
+      "rankSystemsEng": 6
+    },
+    {
+      "experienceTitle": "Network Freeze Google Calendar Script",
+      "experienceDescription": "Developed a tool to manage network freeze deliverys; a script that automatically generates a google calendar countdown for 8 weeks prior to any networks freeze.",
+      "project": "Terrain Response & Auto Terrain Response",
+      "role": "Software Systems Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 7,
+      "rankProjManagement": 6,
+      "rankSystemsEng": 5
+    },
+    {
+      "experienceTitle": "End to End Softwary Delivery Optimisation",
+      "experienceDescription": "Deep dive into end-to-end software delivery process. Identified a number of performance shortfalls / traceability gaps and respective process improvements to address them.",
+      "project": "Terrain Response & Auto Terrain Response",
+      "role": "Software Systems Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 2,
+      "rankProjManagement": 4,
+      "rankSystemsEng": 5
+    },
+    {
+      "experienceTitle": "Interface and Diagnostics Specifications for Supplier",
+      "experienceDescription": "Cascade of respective interface and diagnostic requirements to external suppliers",
+      "project": "Terrain Response & Auto Terrain Response",
+      "role": "Software Systems Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 2,
+      "rankProjManagement": 5,
+      "rankSystemsEng": 5
+    },
+    {
+      "experienceTitle": "Programme Feature Competetiveness Metric",
+      "experienceDescription": "Collaborated to produce a �9-box� metric for PFC (Programme Feature Competitiveness) used to track the progress of vehicle lines, in terms of quality of features + USPs, from KO through to J1. This work culminated in a presentation to Mark Johnson (LL3) to achieve buy-in, which was successful. The metric is now being rolled out.",
+      "project": "Product Development Graduate Scheme",
+      "role": "Graduate Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 2,
+      "rankProjManagement": 4,
+      "rankSystemsEng": 5
+    },
+    {
+      "experienceTitle": "Driver Modes Issues Meeting",
+      "experienceDescription": "Driver Modes Meeting: Responsible for chairing the meeting and providing minutes.",
+      "project": "Terrain Response & Auto Terrain Response",
+      "role": "Software Systems Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 2,
+      "rankProjManagement": 6,
+      "rankSystemsEng": 4
+    },
+    {
+      "experienceTitle": "Surface Friction Estimator Redesign",
+      "experienceDescription": "Coordinated and steered discussions regarding fundamental changes to surface friction model to support split-torque source (torque per axle) powertrain architecture",
+      "project": "Terrain Response & Auto Terrain Response",
+      "role": "Software Systems Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 2,
+      "rankProjManagement": 5,
+      "rankSystemsEng": 4
+    },
+    {
+      "experienceTitle": "Education of New Team Resource",
+      "experienceDescription": "Education of new Controls Engineer (Guy Curtiss) and new Continental Integration engineer (Ashok Bangar)",
+      "project": "Terrain Response & Auto Terrain Response",
+      "role": "Software Systems Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 2,
+      "rankProjManagement": 2,
+      "rankSystemsEng": 4
+    },
+    {
+      "experienceTitle": "Marketing and Engineering Alignment Meeting",
+      "experienceDescription": "Developed a strategy to ensure closer alignment between projects in research and marketing via a series of biweekly, monthly and 3-monthly meetings with senior management",
+      "project": "Product Development Graduate Scheme",
+      "role": "Graduate Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 2,
+      "rankProjManagement": 5,
+      "rankSystemsEng": 4
+    },
+    {
+      "experienceTitle": "Solihull Line Trials for TV / DAB Modules",
+      "experienceDescription": "Supported a series of line trials at Solihull plant (3 x TV Modules and 1 x DAB Module)",
+      "project": "Product Development Graduate Scheme",
+      "role": "Graduate Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 2,
+      "rankProjManagement": 4,
+      "rankSystemsEng": 4
+    },
+    {
+      "experienceTitle": "Weight Save Idea Generation Event",
+      "experienceDescription": "Hosted an Idea Generation session, on behalf of Vehicle Engineering APC, aimed at capturing ideas targeted towards potential weight saves in all aspects of the vehicle, for the L494 SVR.",
+      "project": "Product Development Graduate Scheme",
+      "role": "Graduate Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 2,
+      "rankProjManagement": 2,
+      "rankSystemsEng": 4
+    },
+    {
+      "experienceTitle": "Graduate Allocation Project",
+      "experienceDescription": "Revamped the way graduates were allocated their job roles based on information acquired\nfrom their preference survey. Implemented a binning algorithm in MATLAB justifying that the new approach had a higher �first-time-through� success rate.",
+      "project": "Product Development Graduate Scheme",
+      "role": "Graduate Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 8,
+      "rankProjManagement": 3,
+      "rankSystemsEng": 3
+    },
+    {
+      "experienceTitle": "Electrical Graduates Presentation",
+      "experienceDescription": "Supporting the Electrical Graduate rotation process, by presenting (and managing the remaining content) for an hourly slot, twice a week, for six weeks.",
+      "project": "Terrain Response & Auto Terrain Response",
+      "role": "Software Systems Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 2,
+      "rankProjManagement": 2,
+      "rankSystemsEng": 2
+    },
+    {
+      "experienceTitle": "Assessment Centre Support",
+      "experienceDescription": "Attended numerous lunch-time sessions with prospective graduates at assessment centres, providing guidance and answering any general questions",
+      "project": "Terrain Response & Auto Terrain Response",
+      "role": "Software Systems Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 2,
+      "rankProjManagement": 2,
+      "rankSystemsEng": 2
+    },
+    {
+      "experienceTitle": "PHEV Ride and Drive Event",
+      "experienceDescription": "Coordinated a team of 5 to implement a successful \"Ride and Drive\" event for 8 senior \nmanagers, showcasing the attributes of 5 competitor PHEV vehicles",
+      "project": "Product Development Graduate Scheme",
+      "role": "Graduate Engineer",
+      "rankFrontEnd": 2,
+      "rankBackEnd": 2,
+      "rankProjManagement": 8,
+      "rankSystemsEng": 2
+    }
+  ]
+}

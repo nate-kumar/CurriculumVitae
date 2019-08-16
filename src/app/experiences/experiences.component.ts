@@ -1,9 +1,12 @@
+import { PositionsService } from './../shared/positions.service';
+import { ArrayUtilityService } from './../shared/array-utility.service';
 import { IntExperience } from './int-experience';
 import { DateUtilityService } from './../shared/date-utility.service';
 import { Component, OnInit } from '@angular/core';
 import { JobDataService } from './experience-data.service';
-import { IntJob } from './../shared/int-job';
-import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
+import { IntJob } from '../shared/int-job';
+import { Observable, merge, Subscription } from 'rxjs';
+import { mergeMap, concat, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-experiences',
@@ -13,61 +16,85 @@ import { connectableObservableDescriptor } from 'rxjs/internal/observable/Connec
 export class ExperiencesComponent implements OnInit {
 
   experiences: IntExperience[] = [];
-  uniqueRoles: Set<any>;
-  uniqueRolesArr;
-  experiencesByRole: IntExperience[];
+  uniqueJobs: Set<string>;
+  uniqueJobsArr: string[];
+  experiencesByRole: Array<IntExperience[]>;
+  experiencesByRoleByRank: Array<IntExperience[]>;
   timeWorkedStrByRole: string[] = [];
+  jobs: IntJob[];
+  jobsByDate: IntJob[];
 
+  position = 'Front End';
 
-  test: object = {_id: '', role: ''};
+  subscription: Subscription;
 
-  frontEnd = true;
+  constructor(
+    private jobDataService: JobDataService,
+    private dateUtilityService: DateUtilityService,
+    private arrayUtilityService: ArrayUtilityService,
+    private positionsService: PositionsService) {
 
-  constructor(private jobDataService: JobDataService,
-              private dateUtilityService: DateUtilityService) {
-
-
+    this.subscription = this.positionsService.getSelectedPosition().subscribe((position) => {
+      this.position = position;
+      console.log('component' + this.position);
+      this.refreshExperiences(position);
+    });
   }
 
   ngOnInit() {
-    this.jobDataService.getExperiences().subscribe((res) => {
+
+    this.loadExperiences('rankSystemsEng');
+  }
+
+
+  loadExperiences(rankName) {
+
+    const jobs$ = this.jobDataService.getJobs();
+    const experiences$ = this.jobDataService.getExperiences();
+
+    jobs$.subscribe((res) => {
+      this.jobs = res;
+    });
+
+    experiences$.subscribe((res) => {
+      // Initialise array of experiences
       this.experiences = res;
 
-      this.uniqueRoles = this.uniqueValues(this.experiences, 'role');
-      this.uniqueRolesArr = Array.from(this.uniqueRoles);
+      // Split experiences array into n subarrays of experiences grouped by role and sorted by
+      // job date
+      this.jobsByDate = this.sortJobsByDate(this.jobs);
+      this.experiencesByRole = this.splitExperiencesByJob(this.experiences, this.jobsByDate);
+      this.experiencesByRoleByRank = this.sortArrayExperiencesByRank(
+        this.experiencesByRole, rankName);
 
-      this.experiencesByRole = this.splitExperiencesByRole(this.experiences, this.uniqueRoles);
-
-      this.experiencesByRole.forEach((el) => {
-        const startDate = new Date(el[0].startDate);
-        const endDate = new Date(el[0].endDate);
+      // Calculate timeworked for each role
+      this.jobs.forEach((job) => {
+        const startDate = new Date(job.startDate);
+        const endDate = new Date(job.endDate);
+        const timeWorkedStr = this.dateUtilityService.timeWorkedString(startDate, endDate);
         this.timeWorkedStrByRole
-          .push(this.timeWorkedString(startDate, endDate));
+          .push(timeWorkedStr);
       });
 
     });
-
-
-
   }
 
-  uniqueValues(array, prop) {
-    const arrayValues = [];
+  refreshExperiences(position) {
 
-    array.forEach((el) => {
-      arrayValues.push(el[prop]);
-    });
-    return new Set(arrayValues);
+    const rankName = this.positionsService.mapPositionToRankName(position);
+
+    this.loadExperiences(rankName);
   }
 
-  splitExperiencesByRole(experiences: IntExperience[], roles): IntExperience[] {
+
+  splitExperiencesByJob(experiences: IntExperience[], jobs: IntJob[]): Array<IntExperience[]> {
     const masterArray = [];
 
-    roles.forEach((role) => {
+    jobs.forEach((job) => {
       const tempArray = [];
 
       experiences.forEach((exp) => {
-        if (exp.role === role) {
+        if (exp.role === job.role) {
           tempArray.push(exp);
         }
       });
@@ -77,32 +104,56 @@ export class ExperiencesComponent implements OnInit {
     return masterArray;
   }
 
-  sortByRank(experiences: IntExperience[], position) {
-    // experiences.sort by position (e.g. rankFrontEnd)
+
+  sortJobsByDate(jobs: IntJob[]): IntJob[] {
+
+    const jobsSorted = jobs.slice().sort((a, b) => {
+      if (a.startDate > b.startDate) {
+        return -1;
+      }
+      if (a.startDate < b.startDate) {
+        return 1;
+      }
+      return 0;
+    });
+
+    return jobsSorted;
   }
 
-  sortByRole(experiences: IntExperience[], position) {
+
+  sortExperiencesByRank(experiences: IntExperience[], position): IntExperience[] {
+    // experiences.sort by position (e.g. rankFrontEnd)
+
+    const experiencesSorted = experiences.slice().sort((a, b) => {
+      if (a[position] > b[position]) {
+        return -1;
+      }
+      if (a[position] < b[position]) {
+        return 1;
+      }
+      return 0;
+    });
+
+    return experiencesSorted;
+  }
+
+  sortArrayExperiencesByRank(arrayExperiences: Array<IntExperience[]>, position) {
+
+    const arrayExperiencesSorted = [];
+
+    arrayExperiences.slice().forEach((experiences) => {
+      const experiencesByRank = this.sortExperiencesByRank(experiences, position);
+      arrayExperiencesSorted.push(experiencesByRank);
+    });
+
+    return arrayExperiencesSorted;
+
+  }
+
+  sortExperiencesByRole(experiences: IntExperience[], position) {
     // experiences.sort by job (e.g. Systems Eng @ JLR)
   }
 
   // replace "role" with "job" (e.g. Systems Eng @ JLR), and use "role" and "position" interchangeably
-
-
-  timeWorkedString(startDate: Date, endDate: Date) {
-
-    const months = this.dateUtilityService
-      .monthsWorked(
-        this.dateUtilityService.totalMonths(startDate, endDate)
-      );
-
-    const years = this.dateUtilityService
-      .yearsWorked(
-        this.dateUtilityService.totalMonths(startDate, endDate)
-      );
-
-    const timeWorkedStr = this.dateUtilityService.timeWorked(years, months);
-    return timeWorkedStr;
-  }
-
 
 }

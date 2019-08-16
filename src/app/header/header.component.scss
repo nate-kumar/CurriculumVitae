@@ -1,0 +1,38 @@
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #121212;
+    height: auto;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+#logo {
+    height: 24px;
+    width: auto;
+    padding: 15px;
+    transition-property: opacity, filter;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    opacity: 1;
+}
+
+#logo:hover {
+    opacity: 0.8;
+}
+
+select:focus {
+    outline: none;
+}
+
+#select {
+    // background: linear-gradient(#1f1f1f7f,#1212127f,#1f1f1f7f);
+    background: #121212;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #121212;
+    height: 40px;
+    font-size: 18px;
+    text-align-last: center;
+}
