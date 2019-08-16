@@ -1,5 +1,6 @@
 :host {
     --page-margin: 40px;
+    --primary-color: #fff200;
 }
 
 #wrapper {
@@ -22,23 +23,14 @@
 
 #landing-page {
     grid-area: landing-page;
-    // width: 100%;
     height: calc(100vh - 54px);
     min-height: 800px;
     padding-top: 54px;
 }
 
-
 #about-me {
     grid-area: about-me;
 }
-
-
-
-
-// .photo-clip {
-//     clip-path: circle(125px at 125px 125px);
-// }
 
 #title-container {
     grid-area: title;
@@ -51,20 +43,10 @@
     background: red;
 }
 
-
-
-
 #main-container {
     grid-area: main;
     display: inline-block;
 }
-
-// #aside-container {
-//     grid-area: aside;
-//     display: inline-block;
-//     padding: var(--page-margin);
-//     background: pink;
-// }
 
 #contact, #social, #tech-skills {
     display: grid;

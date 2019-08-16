@@ -12,7 +12,6 @@ export class BlockHeadingComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.titleName);
   }
 
 }

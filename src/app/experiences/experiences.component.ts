@@ -1,10 +1,11 @@
+import { PositionsService } from './../shared/positions.service';
 import { ArrayUtilityService } from './../shared/array-utility.service';
 import { IntExperience } from './int-experience';
 import { DateUtilityService } from './../shared/date-utility.service';
 import { Component, OnInit } from '@angular/core';
 import { JobDataService } from './experience-data.service';
 import { IntJob } from '../shared/int-job';
-import { Observable, merge } from 'rxjs';
+import { Observable, merge, Subscription } from 'rxjs';
 import { mergeMap, concat, map } from 'rxjs/operators';
 
 @Component({
@@ -23,14 +24,31 @@ export class ExperiencesComponent implements OnInit {
   jobs: IntJob[];
   jobsByDate: IntJob[];
 
-  frontEnd = true;
+  position = 'Front End';
 
-  constructor(private jobDataService: JobDataService,
-              private dateUtilityService: DateUtilityService,
-              private arrayUtilityService: ArrayUtilityService) {
+  subscription: Subscription;
+
+  constructor(
+    private jobDataService: JobDataService,
+    private dateUtilityService: DateUtilityService,
+    private arrayUtilityService: ArrayUtilityService,
+    private positionsService: PositionsService) {
+
+    this.subscription = this.positionsService.getSelectedPosition().subscribe((position) => {
+      this.position = position;
+      console.log('component' + this.position);
+      this.refreshExperiences(position);
+    });
   }
 
   ngOnInit() {
+
+    this.loadExperiences('rankSystemsEng');
+  }
+
+
+  loadExperiences(rankName) {
+
     const jobs$ = this.jobDataService.getJobs();
     const experiences$ = this.jobDataService.getExperiences();
 
@@ -41,16 +59,13 @@ export class ExperiencesComponent implements OnInit {
     experiences$.subscribe((res) => {
       // Initialise array of experiences
       this.experiences = res;
-      console.log(this.experiences);
 
       // Split experiences array into n subarrays of experiences grouped by role and sorted by
       // job date
       this.jobsByDate = this.sortJobsByDate(this.jobs);
       this.experiencesByRole = this.splitExperiencesByJob(this.experiences, this.jobsByDate);
       this.experiencesByRoleByRank = this.sortArrayExperiencesByRank(
-        this.experiencesByRole, 'rankProjManagement');
-
-      console.log(this.experiencesByRoleByRank);
+        this.experiencesByRole, rankName);
 
       // Calculate timeworked for each role
       this.jobs.forEach((job) => {
@@ -62,13 +77,15 @@ export class ExperiencesComponent implements OnInit {
       });
 
     });
-
-    // const jobsExperiences$ = merge(
-    //   experiences$,
-    //   jobs$
-    // ).subscribe((res) => console.log(res));
-
   }
+
+  refreshExperiences(position) {
+
+    const rankName = this.positionsService.mapPositionToRankName(position);
+
+    this.loadExperiences(rankName);
+  }
+
 
   splitExperiencesByJob(experiences: IntExperience[], jobs: IntJob[]): Array<IntExperience[]> {
     const masterArray = [];
@@ -125,13 +142,9 @@ export class ExperiencesComponent implements OnInit {
     const arrayExperiencesSorted = [];
 
     arrayExperiences.slice().forEach((experiences) => {
-      console.table(experiences);
       const experiencesByRank = this.sortExperiencesByRank(experiences, position);
-      console.table(experiencesByRank);
       arrayExperiencesSorted.push(experiencesByRank);
     });
-
-    console.table(arrayExperiencesSorted);
 
     return arrayExperiencesSorted;
 

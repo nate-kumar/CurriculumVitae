@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DateUtilityService } from './shared/date-utility.service';
 import { JobDataService } from './experiences/experience-data.service';
@@ -29,7 +30,8 @@ import { BlockHeadingComponent } from './block-heading/block-heading.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [JobDataService, DateUtilityService],
   bootstrap: [AppComponent]
