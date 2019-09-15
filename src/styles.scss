@@ -19,3 +19,9 @@ body, html {
     font-family: 'Roboto', sans-serif;
     text-justify: inter-character
 }
+
+:root {
+    --page-margin: 40px;
+    --primary-color: #fff200;
+    --transition-time: 0.35s;
+}

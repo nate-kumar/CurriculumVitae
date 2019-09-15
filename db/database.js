@@ -12,7 +12,7 @@ MongoClient.connect(connectionString, { useNewUrlParser: true }, (err, client) =
     if (err) {
         return console.log('Unable to connect to MongoDB server')
     }
-    console.log('Connected to MongoDB server');
+    console.log(`Connected to MongoDB server: ${client.isConnected()}`);
     const db = client.db('CurVit')
 
     // db.collection('roles').insertOne({

@@ -22,6 +22,13 @@ export class PositionsService {
     'rankProjManagement'
   ];
 
+  positionThemeColours: string[] = [
+    '#FFF200',
+    '#0CCE6B',
+    '#EF2D56',
+    '#ED7D3A'
+  ];
+
   constructor() {
   }
 
@@ -29,8 +36,10 @@ export class PositionsService {
     return this.selectedPosition.asObservable();
   }
 
-  setSelectedPosition(value) {
-    this.selectedPosition.next(value);
+  setSelectedPosition(position) {
+    this.selectedPosition.next(position);
+    const themeColour = this.mapPositionToColour(position);
+    document.documentElement.style.setProperty('--primary-color', themeColour);
   }
 
   getPositions() {
@@ -47,6 +56,18 @@ export class PositionsService {
       }
     }
     return rankName;
+  }
+
+  mapPositionToColour(position) {
+
+    let colour = '';
+
+    for (let i = 0; i < this.positions.length; i++) {
+      if (this.positions[i] === position) {
+        colour = this.positionThemeColours[i];
+      }
+    }
+    return colour;
   }
 
 }
