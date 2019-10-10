@@ -1,9 +1,11 @@
 <section id="header">
-  <img id="logo" class="photo-clip" src=".\assets\Page1\NKLogoPlain.svg">
-  <select [(ngModel)]="selectedPosition" id="select" (ngModelChange)="onChange($event)">
-      <option *ngFor="let position of positions">
-         {{ position }}
-      </option>
-   </select>
-  <app-hamburger id="hamburger"></app-hamburger>
+  <!-- <img id="logo" class="photo-clip" src=".\assets\Page1\NKLogoPlain.svg"> -->
+   <app-logo id="logo"></app-logo>
+      <select [(ngModel)]="selectedPosition" id="select" (ngModelChange)="onChange($event)">
+         <option *ngFor="let position of positions">
+            {{ position }}
+         </option>
+      </select>
+   <app-hamburger id="hamburger"></app-hamburger>
 </section>
+

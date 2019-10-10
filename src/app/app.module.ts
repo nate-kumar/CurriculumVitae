@@ -14,6 +14,7 @@ import { HeaderComponent } from './header/header.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { BlockHeadingComponent } from './block-heading/block-heading.component';
+import { LogoComponent } from './logo/logo.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { BlockHeadingComponent } from './block-heading/block-heading.component';
     HeaderComponent,
     LandingPageComponent,
     AboutMeComponent,
-    BlockHeadingComponent
+    BlockHeadingComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 const database = require('../db/database');
+const port = 3000;
 
 const db = 'CurVit'
 const dbConnectUrl = database.connectionString; 
@@ -15,7 +16,6 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
     next();
 })
-
 
 const Employers = mongoose.model('employers', {
 	employer:String
@@ -46,20 +46,6 @@ const Jobs = mongoose.model('jobs', {
     startDate:Date,
     endDate:Date
 })
-
-
-// app.post('/todos', (req, res) => {
-//     // console.log(req.body);
-//     let todo = new Todo({
-//         text: req.body.text
-//     })
-
-//     todo.save().then((doc) => {
-//         res.send(doc)
-//     }, (err) => {
-//         res.status(400).send(err);
-//     })
-// });
 
 app.get('/employers', (req, res) => {
     Employers.find((err, employers) => {
@@ -97,7 +83,6 @@ app.get('/jobs', (req, res) => {
     })
 })
 
-const port = 3000;
 app.listen(port, () => {
     console.log(`Started on port ${port}`)
 })
