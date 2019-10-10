@@ -19,6 +19,7 @@
 
 #heading-title::first-letter {
     color: var(--primary-color);
+    transition-duration: var(--transition-time);
 }
 
 #heading-background {

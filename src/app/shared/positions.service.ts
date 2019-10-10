@@ -24,9 +24,9 @@ export class PositionsService {
 
   positionThemeColours: string[] = [
     '#FFF200',
-    '#0CCE6B',
-    '#EF2D56',
-    '#ED7D3A'
+    '#0077FF',
+    '#A100FF',
+    '#8C0002'
   ];
 
   constructor() {
