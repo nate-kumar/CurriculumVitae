@@ -1,45 +1,31 @@
 #heading-wrapper {
-    position: relative;
+	position: relative;
 }
 
 #heading-title {
-    position: absolute;
-    margin-block-start: 0px;
-    margin-block-end: 0px;
-    font-size: 48px;
-    color: #fff; 
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    text-align: center;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: calc(50% - 28px);
-    // transform: translateY(-50%);
+	position: absolute;
+	margin-block-start: 0px;
+	margin-block-end: 0px;
+	font-size: 48px;
+	color: #fff; 
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: calc(50% - 28px);
+	// transform: translateY(-50%);
 }
 
 #heading-title::first-letter {
-    color: var(--primary-color);
-    transition-duration: var(--transition-time);
+	color: var(--primary-color);
+	transition-duration: var(--transition-time);
 }
 
 #heading-background {
-    height: 160px;
-    background-color: #0c0c0c;
-    background-image: url('src/assets/Page1/checkered-pattern.png');
-    background-repeat: repeat;
-    border: 1px solid #0e0e0e;
+	height: 160px;
+	background-color: #0c0c0c;
+	background-image: url('src/assets/Page1/checkered-pattern.png');
+	background-repeat: repeat;
+	border: 1px solid #0e0e0e;
 }
-
-// .parallax { 
-//     // background-image: url('src/assets/Page1/alex-rodriguez-santibanez-WOSvM6tPHBQ-unsplash.jpg');
-//     background-image: url('src/assets/Page1/markus-spiske-FXFz-sW0uwo-unsplash.jpg');
-  
-//     height: 200px; 
-  
-//     background-attachment: fixed;
-//     background-position: center;
-//     background-repeat: no-repeat;
-//     background-size: cover;
-//     // filter:blur(10px)
-// }
-
