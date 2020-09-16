@@ -1,7 +1,10 @@
 const {MongoClient} = require('mongodb');
-const connectionString = 'mongodb://localhost:27017'
 
-// const experiences = require('../db/experiences');
+// Use when running MongoDB locally
+// const connectionString = 'mongodb://localhost:27017'
+
+// Use when running MongoDB via Cloud Atlas cluster
+const connectionString = 'mongodb+srv://nk-user:Test@123@cluster0.depff.mongodb.net/CurVit?retryWrites=true&w=majority'
 
 // Sychronous file read as JSON is small. If large, use Async method fs.readFile.
 const fs = require('fs');
