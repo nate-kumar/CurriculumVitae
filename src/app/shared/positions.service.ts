@@ -15,7 +15,7 @@ export class PositionsService {
     'Project Management'
   ];
 
-  rankNames: string[] = [
+  positionStrings: string[] = [
     'rankFrontEnd',
     'rankBackEnd',
     'rankSystemsEng',
@@ -46,16 +46,15 @@ export class PositionsService {
     return this.positions;
   }
 
-  mapPositionToRankName(position) {
-
-    let rankName = '';
+  mapPositionToPositionString( position ) {
+    let positionString = '';
 
     for (let i = 0; i < this.positions.length; i++) {
       if (this.positions[i] === position) {
-        rankName = this.rankNames[i];
+        positionString = this.positionStrings[i];
       }
     }
-    return rankName;
+    return positionString;
   }
 
   mapPositionToColour(position) {

@@ -13,11 +13,11 @@
           {{ job?.project }}
         </h4>
         <h5 class="job-duration">
-          {{ job?.startDate | date: 'MMM yy' }} - {{ job?.endDate | date: 'MMM yy' }}  ({{ timeWorkedStrByRole[ i ] }})
+          {{ job?.startDate | date: 'MMM yy' }} - {{ job?.endDate | date: 'MMM yy' }}  ({{ job?.timeWorked }})
         </h5>
       </div>
       <div class="experience-items-wrapper">
-        <app-experience-item *ngFor="let exp of experiencesByRoleByRank[ i ] | slice:0:4" 
+        <app-experience-item *ngFor="let exp of experiencesByJobByRank[ i ] | slice:0:4" 
                              [experience]="exp">
         </app-experience-item>
       </div>
