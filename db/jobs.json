@@ -1,7 +1,7 @@
 { "jobs": 
     [
         {
-        "project": "Terrain Response & Auto Terrain Response",
+        "project": "Terrain Response & Configurable Terrain Response",
         "role": "Lead System Architect",
         "employer": "Jaguar Land Rover",
         "startDate": "2018-09-01T07:00:00+0000",
@@ -9,7 +9,7 @@
         },
         {
         "project": "All Terrain Info Centre & All Surface Information",
-        "role": "Software Systems Engineer",
+        "role": "System Owner",
         "employer": "Jaguar Land Rover",
         "startDate": "2017-03-01T07:00:00+0000",
         "endDate": "2018-08-31T07:00:00+0000"
