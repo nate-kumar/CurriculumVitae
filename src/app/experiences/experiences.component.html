@@ -1,14 +1,24 @@
 <section id="experience-wrapper">
-  <app-block-heading titleName="Experience"></app-block-heading>
+  <app-block-heading titleName="Experience">
+  </app-block-heading>
+
   <div class="jobs-wrapper">
-    <div *ngFor="let job of jobs; let i = index" class="job-wrapper">
+    <div *ngFor="let job of jobs; let i = index" 
+         class="job-wrapper">
       <div class="job-title-wrapper">
-        <h2 class="job-role">{{ job?.role }}</h2>
-        <h4 class="job-project">{{ job?.project }}</h4>
-        <h5 class="job-duration">{{ jobs[i].startDate | date: 'MMM yy' }} - {{ jobs[i].endDate | date: 'MMM yy' }}  ({{ timeWorkedStrByRole[i] }})</h5>
+        <h2 class="job-role">
+          {{ job?.role }}
+        </h2>
+        <h4 class="job-project">
+          {{ job?.project }}
+        </h4>
+        <h5 class="job-duration">
+          {{ job?.startDate | date: 'MMM yy' }} - {{ job?.endDate | date: 'MMM yy' }}  ({{ timeWorkedStrByRole[ i ] }})
+        </h5>
       </div>
       <div class="experience-items-wrapper">
-        <app-experience-item *ngFor="let exp of experiencesByRoleByRank[i]" [experience]="exp"></app-experience-item>
+        <app-experience-item *ngFor="let exp of experiencesByRoleByRank[i]" [experience]="exp">
+        </app-experience-item>
       </div>
     </div>
   </div>

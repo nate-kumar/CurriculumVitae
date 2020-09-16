@@ -34,21 +34,23 @@ export class ExperiencesComponent implements OnInit {
     private arrayUtilityService: ArrayUtilityService,
     private positionsService: PositionsService) {
 
-    this.subscription = this.positionsService.getSelectedPosition().subscribe((position) => {
-      this.position = position;
-      console.log('component' + this.position);
-      this.refreshExperiences(position);
-    });
+    this.subscription = this.positionsService
+      .getSelectedPosition()
+      .subscribe(
+        ( position: string ) => {
+          this.position = position;
+          console.log( 'component' + this.position );
+          this.refreshExperiences( position );
+        }
+    );
   }
 
   ngOnInit() {
-
     this.loadExperiences('rankSystemsEng');
   }
 
 
-  loadExperiences(rankName) {
-
+  public loadExperiences( rankName ) {
     const jobs$ = this.jobDataService.getJobs();
     const experiences$ = this.jobDataService.getExperiences();
 
@@ -62,60 +64,85 @@ export class ExperiencesComponent implements OnInit {
 
       // Split experiences array into n subarrays of experiences grouped by role and sorted by
       // job date
-      this.jobsByDate = this.sortJobsByDate(this.jobs);
-      this.experiencesByRole = this.splitExperiencesByJob(this.experiences, this.jobsByDate);
-      this.experiencesByRoleByRank = this.sortArrayExperiencesByRank(
-        this.experiencesByRole, rankName);
+      this.jobsByDate = this.sortJobsByDate( this.jobs );
+
+      this.experiencesByRole = 
+        this.splitExperiencesByJob(
+          this.experiences, 
+          this.jobsByDate
+        );
+
+      this.experiencesByRoleByRank = 
+        this.sortArrayExperiencesByRank(
+          this.experiencesByRole, 
+          rankName
+        );
 
       // Calculate timeworked for each role
-      this.jobs.forEach((job) => {
-        const startDate = new Date(job.startDate);
-        const endDate = new Date(job.endDate);
-        const timeWorkedStr = this.dateUtilityService.timeWorkedString(startDate, endDate);
-        this.timeWorkedStrByRole
-          .push(timeWorkedStr);
-      });
+      this.jobs.forEach(
+        ( job: IntJob ) => {
+          const startDate = new Date( job.startDate );
+          const endDate = new Date( job.endDate );
+          const timeWorkedStr = 
+            this.dateUtilityService.timeWorkedString(
+              startDate, 
+              endDate
+            );
+
+          this.timeWorkedStrByRole.push( timeWorkedStr );
+        }
+      );
 
     });
   }
 
-  refreshExperiences(position) {
-
+  public refreshExperiences(position) {
     const rankName = this.positionsService.mapPositionToRankName(position);
-
     this.loadExperiences(rankName);
   }
 
 
-  splitExperiencesByJob(experiences: IntExperience[], jobs: IntJob[]): Array<IntExperience[]> {
-    const masterArray = [];
+  public splitExperiencesByJob(
+    experiences: IntExperience[], 
+    jobs: IntJob[]
+  ): Array<IntExperience[]> {
+    const splitExperiencesAllJobs = [];
 
-    jobs.forEach((job) => {
-      const tempArray = [];
+    jobs.forEach(
+      ( job: IntJob ) => {
+        const splitExperiencesPerJob = [];
 
-      experiences.forEach((exp) => {
-        if (exp.role === job.role) {
-          tempArray.push(exp);
-        }
-      });
+        experiences.forEach(
+          ( experience: IntExperience ) => {
+            if ( experience.role === job.role ) {
+              splitExperiencesPerJob.push( experience );
+            }
+          }
+        );
 
-      masterArray.push(tempArray);
-    });
-    return masterArray;
+        splitExperiencesAllJobs.push( splitExperiencesPerJob );
+      }
+    );
+
+    return splitExperiencesAllJobs;
   }
 
-
-  sortJobsByDate(jobs: IntJob[]): IntJob[] {
-
-    const jobsSorted = jobs.slice().sort((a, b) => {
-      if (a.startDate > b.startDate) {
-        return -1;
-      }
-      if (a.startDate < b.startDate) {
-        return 1;
-      }
-      return 0;
-    });
+  public sortJobsByDate( jobs: IntJob[] ): IntJob[] {
+    const jobsSorted = 
+      jobs
+        .slice()
+        .sort(
+          ( job1: IntJob, 
+            job2: IntJob ) => {
+            if ( job1.startDate > job2.startDate) {
+              return -1;
+            }
+            if ( job1.startDate < job2.startDate ) {
+              return 1;
+            }
+            return 0;
+          }
+        );
 
     return jobsSorted;
   }
