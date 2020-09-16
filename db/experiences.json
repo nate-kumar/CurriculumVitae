@@ -22,7 +22,7 @@
     },
     {
       "experienceTitle": "Revamped software delivery process",
-      "experienceDescription": "Spearheaded a tailored software delivery process for a team of 15 members. Defined key roles, \nflow and format of information and conducted local training on how to implement this within \nthe company�s existing toolchain.",
+      "experienceDescription": "Spearheaded a tailored software delivery process for a team of 15 members. Defined key roles, \nflow and format of information and conducted local training on how to implement this within \nthe company's existing toolchain.",
       "project": "Terrain Response & Configurable Terrain Response",
       "role": "Lead System Architect",
       "rankFrontEnd": 3,
@@ -142,7 +142,7 @@
     },
     {
       "experienceTitle": "Modular Overhead Console",
-      "experienceDescription": "Co-designed a modular overhead console capable of replacing 24 unique hardware variants \nand saving an estimated �15-25 per car across the entire JLR fleet of 400,000+ vehicles",
+      "experienceDescription": "Co-designed a modular overhead console capable of replacing 24 unique hardware variants \nand saving an estimated £15-25 per car across the entire JLR fleet of 400,000+ vehicles",
       "project": "Product Development Graduate Scheme",
       "role": "Graduate Engineer",
       "rankFrontEnd": 2,
@@ -262,7 +262,7 @@
     },
     {
       "experienceTitle": "Programme Feature Competetiveness Metric",
-      "experienceDescription": "Collaborated to produce a �9-box� metric for PFC (Programme Feature Competitiveness) used to track the progress of vehicle lines, in terms of quality of features + USPs, from KO through to J1. This work culminated in a presentation to Mark Johnson (LL3) to achieve buy-in, which was successful. The metric is now being rolled out.",
+      "experienceDescription": "Collaborated to produce a '9-box' metric for PFC (Programme Feature Competitiveness) used to track the progress of vehicle lines, in terms of quality of features + USPs, from KO through to J1. This work culminated in a presentation to Mark Johnson (LL3) to achieve buy-in, which was successful. The metric is now being rolled out.",
       "project": "Product Development Graduate Scheme",
       "role": "Graduate Engineer",
       "rankFrontEnd": 2,
@@ -332,7 +332,7 @@
     },
     {
       "experienceTitle": "Graduate Allocation Project",
-      "experienceDescription": "Revamped the way graduates were allocated their job roles based on information acquired\nfrom their preference survey. Implemented a binning algorithm in MATLAB justifying that the new approach had a higher �first-time-through� success rate.",
+      "experienceDescription": "Revamped the way graduates were allocated their job roles based on information acquired\nfrom their preference survey. Implemented a binning algorithm in MATLAB justifying that the new approach had a higher 'first-time-through' success rate.",
       "project": "Product Development Graduate Scheme",
       "role": "Graduate Engineer",
       "rankFrontEnd": 2,
