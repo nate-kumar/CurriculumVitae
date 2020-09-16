@@ -17,7 +17,8 @@
         </h5>
       </div>
       <div class="experience-items-wrapper">
-        <app-experience-item *ngFor="let exp of experiencesByRoleByRank[i]" [experience]="exp">
+        <app-experience-item *ngFor="let exp of experiencesByRoleByRank[ i ] | slice:0:4" 
+                             [experience]="exp">
         </app-experience-item>
       </div>
     </div>
