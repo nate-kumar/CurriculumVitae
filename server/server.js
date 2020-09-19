@@ -8,6 +8,8 @@ const port = 3000;
 
 const db = 'CurVit'
 const dbConnectUrl = database.connectionString; 
+
+mongoose.set('useUnifiedTopology', true);
 mongoose.connect(`${dbConnectUrl}/${db}`, {useNewUrlParser: true});
 
 app.use(bodyParser.json())
