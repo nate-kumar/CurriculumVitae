@@ -11,10 +11,26 @@
 #landing-texture {
     width: 100%;
     height: 100%;
+    // background-color: #070707;
+    // background: url('/assets/Page1/luke-sheveland-1Ev75_QLjLA-unsplash.jpg') no-repeat center center fixed;
+    // background-size: cover;
+    // background-blend-mode: saturation;
+    // background-image: url('/assets/Page1/dark-wood.png');
+    // background-repeat: repeat;
+}
+
+#landing-texture::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
     background-color: #070707;
     background: url('/assets/Page1/luke-sheveland-1Ev75_QLjLA-unsplash.jpg') no-repeat center center fixed;
     background-size: cover;
-    background-blend-mode: saturation;
+    filter: grayscale(0.9) brightness(0.2);
+    // filter: brightness(50%)
     // background-image: url('/assets/Page1/dark-wood.png');
     // background-repeat: repeat;
 }
@@ -68,17 +84,18 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin-left: 10rem;
+    margin: 10rem 0 0 10rem;
     padding: 2rem;
-    background-color: rgba(0, 0, 0, 0.3);
+    // background-color: rgba(0, 0, 0, 0.3);
+    z-index: 10;
 }
 
 .centered {
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    // justify-content: flex-start;
+    // align-items: center;
 }
 
 .no-margin {
