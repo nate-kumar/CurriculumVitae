@@ -1,32 +1,40 @@
 import { Injectable } from '@angular/core';
-import { Subject, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
+
+interface Position {
+  title: string;
+  rankName: string;
+  colour: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class PositionsService {
 
-  selectedPosition = new BehaviorSubject('Front End');
+  selectedPosition = new BehaviorSubject( 'Front End' );
 
-  positions: string[] = [
-    'Front End',
-    'Back End',
-    'Systems Engineering',
-    'Project Management'
-  ];
-
-  positionStrings: string[] = [
-    'rankFrontEnd',
-    'rankBackEnd',
-    'rankSystemsEng',
-    'rankProjManagement'
-  ];
-
-  positionThemeColours: string[] = [
-    '#FFF200',
-    '#0077FF',
-    '#A100FF',
-    '#8C0002'
+  positions: Position[] = [
+    {
+      title: 'Front End',
+      rankName: 'rankFrontEnd',
+      colour: '#FFF200'
+    },
+    {
+      title: 'Back End',
+      rankName: 'rankBackEnd',
+      colour: '#0077FF'
+    },
+    {
+      title: 'Systems Engineering',
+      rankName: 'rankSystemsEng',
+      colour: '#A100FF'
+    },
+    {
+      title: 'Project Management',
+      rankName: 'rankProjManagement',
+      colour: '#8C0002'
+    },
   ];
 
   constructor() {
@@ -36,37 +44,42 @@ export class PositionsService {
     return this.selectedPosition.asObservable();
   }
 
-  setSelectedPosition(position) {
-    this.selectedPosition.next(position);
-    const themeColour = this.mapPositionToColour(position);
-    document.documentElement.style.setProperty('--primary-color', themeColour);
+  setSelectedPosition( position: string ) {
+    const themeColour: string = this.mapPositionToColour( position );
+    document.documentElement.style
+      .setProperty(
+        '--primary-color',
+        themeColour
+      );
+
+    this.selectedPosition.next( position );
   }
 
   getPositions() {
-    return this.positions;
+    return this.positions
+      ?.map(
+        ( pos: Position ) => pos.title
+      );
   }
 
-  mapPositionToPositionString( position ) {
-    let positionString = '';
-
-    for (let i = 0; i < this.positions.length; i++) {
-      if (this.positions[i] === position) {
-        positionString = this.positionStrings[i];
-      }
-    }
-    return positionString;
+  mapPositionToPositionString( title: string ) {
+    return this.positions
+      ?.filter(
+        ( position: Position ) => position.title === title
+      )
+      .map(
+        ( position: Position ) => position.rankName
+      )[ 0 ];
   }
 
-  mapPositionToColour(position) {
-
-    let colour = '';
-
-    for (let i = 0; i < this.positions.length; i++) {
-      if (this.positions[i] === position) {
-        colour = this.positionThemeColours[i];
-      }
-    }
-    return colour;
+  mapPositionToColour( title: string ) {
+    return this.positions
+      ?.filter(
+        ( position: Position ) => position.title === title
+      )
+      .map(
+        ( position: Position ) => position.colour
+      )[ 0 ];
   }
 
 }
