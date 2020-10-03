@@ -1,4 +1,4 @@
-export interface IntRoleCategory {
+export interface IntRankName {
     rankFrontEnd: number;
     rankBackEnd: number;
     rankProjManagement: number;

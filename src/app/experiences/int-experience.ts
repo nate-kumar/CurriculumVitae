@@ -1,7 +1,7 @@
-import { IntJob } from './../shared/int-job';
-import { IntRoleCategory } from './../shared/int-role-category';
+import { IntJob } from '../shared/job.model';
+import { IntRankName } from '../shared/models/rank-name.model';
 
-export interface IntExperience extends IntJob, IntRoleCategory {
+export interface IntExperience extends IntJob, IntRankName {
     experienceTitle: string;
     experienceDescription: string;
 }

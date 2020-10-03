@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { IntJob } from './../shared/int-job';
+import { IntJob } from '../shared/job.model';
 import { IntExperience } from './int-experience';
 
 @Injectable({

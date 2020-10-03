@@ -4,7 +4,7 @@ import { IntExperience } from './int-experience';
 import { DateUtilityService } from './../shared/date-utility.service';
 import { Component, OnInit } from '@angular/core';
 import { JobDataService } from './experience-data.service';
-import { IntJob } from '../shared/int-job';
+import { IntJob } from '../shared/job.model';
 import { Observable, merge, Subscription, combineLatest } from 'rxjs';
 import { mergeMap, concat, map } from 'rxjs/operators';
 
