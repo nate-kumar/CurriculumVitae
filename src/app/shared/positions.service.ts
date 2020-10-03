@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 interface Position {
   title: string;
@@ -12,7 +12,7 @@ interface Position {
 })
 export class PositionsService {
 
-  selectedPosition = new BehaviorSubject( 'Front End' );
+  selectedPosition: BehaviorSubject<string> = new BehaviorSubject( 'Front End' );
 
   positions: Position[] = [
     {
@@ -37,10 +37,9 @@ export class PositionsService {
     },
   ];
 
-  constructor() {
-  }
+  constructor() {}
 
-  getSelectedPosition() {
+  getSelectedPosition(): Observable<string> {
     return this.selectedPosition.asObservable();
   }
 
@@ -55,14 +54,14 @@ export class PositionsService {
     this.selectedPosition.next( position );
   }
 
-  getPositions() {
+  getPositions(): string {
     return this.positions
       ?.map(
         ( pos: Position ) => pos.title
-      );
+      )[ 0 ];
   }
 
-  mapPositionToPositionString( title: string ) {
+  mapPositionToPositionString( title: string ): string {
     return this.positions
       ?.filter(
         ( position: Position ) => position.title === title
@@ -72,7 +71,7 @@ export class PositionsService {
       )[ 0 ];
   }
 
-  mapPositionToColour( title: string ) {
+  mapPositionToColour( title: string ): string {
     return this.positions
       ?.filter(
         ( position: Position ) => position.title === title
