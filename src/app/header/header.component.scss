@@ -1,15 +1,15 @@
 
-#header {
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #121212;
+    background: rgba(18, 18, 18, 1);
     height: auto;
     border-bottom: 2px solid var(--primary-color);
     transition-duration: var(--transition-time);
 }
 
-#logo {
+.logo {
     height: 24px;
     width: 24px;
     padding: 15px;
@@ -19,7 +19,7 @@
     opacity: 1;
 }
 
-#logo:hover {
+.logo:hover {
     opacity: 0.8;
 }
 
@@ -27,8 +27,7 @@ select:focus {
     outline: none;
 }
 
-#select {
-    // background: linear-gradient(#1f1f1f7f,#1212127f,#1f1f1f7f);
+.select {
     background: #121212;
     color: white;
     font-family: 'Roboto', sans-serif;
